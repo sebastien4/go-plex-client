@@ -864,8 +864,8 @@ func (p *Plex) GetLibraries() (LibrarySections, error) {
 }
 
 // GetLibraryContent retrieve the content inside a library
-func (p *Plex) GetLibraryContent(sectionKey string, filter string) (SearchResults, error) {
-	query := fmt.Sprintf("%s/library/sections/%s/all%s", p.URL, sectionKey, filter)
+func (p *Plex) GetLibraryContent(sectionKey string, sort string, filter string) (SearchResults, error) {
+	query := fmt.Sprintf("%s/library/sections/%s/%s%s", p.URL, sectionKey, sort, filter)
 
 	resp, err := p.get(query, defaultHeaders())
 
